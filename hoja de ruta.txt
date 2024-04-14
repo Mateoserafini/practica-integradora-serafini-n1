@@ -1,0 +1,27 @@
+Agregar el modelo de persistencia de MongoDB y Mongoose:
+
+Instala MongoDB y Mongoose en tu proyecto si aún no lo has hecho.
+Define los esquemas de MongoDB para las colecciones "carts", "messages", y "products".
+Asegúrate de que los esquemas reflejen adecuadamente la estructura de los datos que deseas almacenar.
+Crear la base de datos y las colecciones en Atlas:
+
+Accede a tu cuenta de Atlas y crea una base de datos llamada "ecommerce".
+Dentro de esta base de datos, crea las colecciones "carts", "messages", y "products".
+Reorganizar la estructura del proyecto:
+
+Crea una carpeta llamada "dao" en tu proyecto.
+Dentro de la carpeta "dao", crea una subcarpeta llamada "models" donde colocarás los esquemas de MongoDB.
+Mueve los managers de FileSystem a la carpeta "dao", manteniendo la estructura de carpetas vista en clase.
+Actualizar los servicios para trabajar con Mongoose:
+
+Modifica los servicios existentes para que utilicen los modelos de Mongoose en lugar de las operaciones de FileSystem.
+Asegúrate de que los servicios sigan funcionando correctamente al interactuar con la base de datos MongoDB.
+Implementar la vista del chat:
+
+Crea un archivo llamado "chat.handlebars" en tu carpeta de vistas.
+Diseña la interfaz del chat utilizando HTML y Handlebars según tus necesidades.
+Implementa la lógica del chat para enviar y recibir mensajes, asegurándote de que los mensajes se guarden correctamente en la colección "messages" de MongoDB.
+Corroborar la integridad del proyecto:
+
+Realiza pruebas exhaustivas para asegurarte de que todas las funcionalidades del proyecto sigan funcionando correctamente.
+Verifica que la integración con MongoDB y la implementación del chat no hayan introducido errores en otras partes del proyecto.

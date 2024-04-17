@@ -1,0 +1,42 @@
+<div class="">
+  <div
+    class=""
+  >
+    <h1 class="">ecommerce</h1>
+  </div>
+  {{#each products}}
+    <div class="">
+      <div class="">
+        <div class="">
+          <img
+            src={{{this.img}}}
+            class=""
+            alt="Imagen descriptiva del producto"
+          />
+        </div>
+        <div class="">
+          <div class="">
+            <h5 class="">{{this.title}}</h5>
+            <p class="">{{this.description}}</p>
+            <div class="">
+              <div
+                class=""
+              >
+                <p class="card-text"><span class="">
+                    Categoria:
+                  </span>{{this.code}}</p>
+              </div>
+            </div>
+            <div class="">
+              <p class="price"><span class="">Precio: $</span>
+                {{this.price}}</p>
+              <p class=""><span class="">Unidades
+                  disponibles:</span>
+                {{this.stock}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>

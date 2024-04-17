@@ -1,27 +1,83 @@
-Agregar el modelo de persistencia de MongoDB y Mongoose:
+Estructura de la aplicacion:
+├── public/
+│     ├── css/
+│     │   └── style.css
+│     └──  js/
+│         └── script.js
+├── src/
+│   ├── dao/
+│   │   ├── managers/
+│   │   │   ├── mongo
+│   │   │   │   ├──products.manager.js
+│   │   │   │   ├──carts.manager.js
+│   │   │   │   └──messages.manager.js
+│   │   │   │  
+│   │   │   ├── filesystem
+│   │   │   │   ├──fs.products.manager.js
+│   │   │   │   ├──fs.carts.manager.js
+│   │   │   │   └──fs.messages.manager.js
+│   │   │   │  
+│   │   ├── models/
+│   │   │   ├── product.model.js
+│   │   │   ├── cart.model.js
+│   │   │   └── message.model.js
+│   ├── views/
+│   │   ├──layouts
+│   │   │   └── main.handlebars
+│   │   ├── home.handlebars
+│   │   ├── realtimeProducts.handlebars
+│   │   └── chat.handlebars
+│   ├── routes/
+│   │   ├── products.router.js
+│   │   ├── carts.router.js
+│   │   ├── messages.router.js
+│   ├── controllers/
+│   │   ├── products.controller.js
+│   │   ├── carts.controller.js
+│   │   └──  messages.controller.js
+│   ├── services/
+│   │   ├── productService.js
+│   │   ├── cartService.js
+│   │   └── messageService.js
+│   └── config/
+│       └── mongoose.js
+├── app.js
+└── package.json
 
-Instala MongoDB y Mongoose en tu proyecto si aún no lo has hecho.
-Define los esquemas de MongoDB para las colecciones "carts", "messages", y "products".
-Asegúrate de que los esquemas reflejen adecuadamente la estructura de los datos que deseas almacenar.
-Crear la base de datos y las colecciones en Atlas:
+Paso 1 :Configuración inicial del proyect.
+- Crea una nueva carpeta para el proyecto, por ejemplo, "curso-coder-backend".
+- Inicializa un nuevo proyecto de Node.js utilizando npm:
+  ```
+  npm init -y
+  ```
+- Instala las dependencias necesarias, como Express, Handlebars, Socket.io, Mongoose, etc.
 
-Accede a tu cuenta de Atlas y crea una base de datos llamada "ecommerce".
-Dentro de esta base de datos, crea las colecciones "carts", "messages", y "products".
-Reorganizar la estructura del proyecto:
+Paso 2 :Configuración de Express.
+- En `app.js`, importa Express y crea una instancia de la aplicación.
+- Configura Express para servir archivos estáticos desde la carpeta `public`.
 
-Crea una carpeta llamada "dao" en tu proyecto.
-Dentro de la carpeta "dao", crea una subcarpeta llamada "models" donde colocarás los esquemas de MongoDB.
-Mueve los managers de FileSystem a la carpeta "dao", manteniendo la estructura de carpetas vista en clase.
-Actualizar los servicios para trabajar con Mongoose:
+Paso 3 :Configuración de Handlebars.
+- Instala Handlebars y el middleware `express-handlebars`.
+- Crea el archivo `main.handlebars` dentro de la carpeta `views/layouts` para el layout principal.
+- Configura Express para utilizar Handlebars como motor de vistas.
 
-Modifica los servicios existentes para que utilicen los modelos de Mongoose en lugar de las operaciones de FileSystem.
-Asegúrate de que los servicios sigan funcionando correctamente al interactuar con la base de datos MongoDB.
-Implementar la vista del chat:
+Paso 4 :Configuración de MongoDB y Mongoose.
+- Instala MongoDB y Mongoose.
+- Crea el archivo `mongoose.js` dentro de la carpeta `config` para configurar la conexión a la base de datos.
 
-Crea un archivo llamado "chat.handlebars" en tu carpeta de vistas.
-Diseña la interfaz del chat utilizando HTML y Handlebars según tus necesidades.
-Implementa la lógica del chat para enviar y recibir mensajes, asegurándote de que los mensajes se guarden correctamente en la colección "messages" de MongoDB.
-Corroborar la integridad del proyecto:
+Paso 5 :Definición de modelos.
+- Crea los archivos `product.model.js`, `cart.model.js`, y `message.model.js` dentro de la carpeta `dao/models` para definir los esquemas de los modelos de datos.
 
-Realiza pruebas exhaustivas para asegurarte de que todas las funcionalidades del proyecto sigan funcionando correctamente.
-Verifica que la integración con MongoDB y la implementación del chat no hayan introducido errores en otras partes del proyecto.
+Paso 6 :Managers para la persistencia de datos:**
+- En la carpeta `dao/managers/mongo`, crea los archivos `products.manager.js`, `carts.manager.js`, y `messages.manager.js` para definir las funciones de acceso a la base de datos MongoDB.
+- En la carpeta `dao/managers/filesystem`, crea los archivos `fs.products.manager.js`, `fs.carts.manager.js`, y `fs.messages.manager.js` para definir las funciones de acceso al sistema de archivos.
+
+Paso 7 :Rutas y controladores.
+- Crea los archivos `products.router.js`, `carts.router.js`, y `messages.router.js` dentro de la carpeta `routes` para definir las rutas de la API.
+- Crea los archivos `products.controller.js`, `carts.controller.js`, y `messages.controller.js` dentro de la carpeta `controllers` para manejar las solicitudes HTTP.
+
+Paso 8 :Servicios.
+- Crea los archivos `productService.js`, `cartService.js`, y `messageService.js` dentro de la carpeta `services` para encapsular la lógica de negocio.
+
+Paso 9 :Vistas.
+- Crea los archivos `home.handlebars`, `realtimeProducts.handlebars`, y `chat.handlebars` dentro de la carpeta `views` para las diferentes vistas de la aplicación.
